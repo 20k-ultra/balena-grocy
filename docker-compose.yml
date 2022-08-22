@@ -1,0 +1,17 @@
+version: "2.1"
+
+volumes:
+  config:
+
+services:
+  grocy:
+    image: lscr.io/linuxserver/grocy:latest
+    container_name: grocy
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Toronto
+    volumes:
+      - config:/config
+    ports:
+      - 80:80
